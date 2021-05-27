@@ -1,6 +1,10 @@
 import abstract_factory.BlackFactory
 import abstract_factory.WhiteFactory
 import factory.AnimalFactory
+import observer.MySubject
+import observer.ObserverOne
+import observer.ObserverTwo
+import observer.Subject
 import singleton.*
 import strategy.Add
 import strategy.Multiplicate
@@ -38,5 +42,10 @@ object Main {
         println(StaticInnerSingleton.instance)//静态内部类
         println(StaticInnerSingleton.instance)
         println(StaticInnerSingleton.instance)
+        //观察者模式
+        val subject = MySubject()//实例化订阅者
+        subject.add(ObserverOne())//添加观察者
+        subject.add(ObserverTwo())
+        subject.operation()//执行自身的操作
     }
 }
