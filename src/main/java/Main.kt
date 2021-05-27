@@ -5,6 +5,8 @@ import observer.MySubject
 import observer.ObserverOne
 import observer.ObserverTwo
 import observer.Subject
+import proxy.Proxy
+import proxy.RealSubject
 import singleton.*
 import strategy.Add
 import strategy.Multiplicate
@@ -47,5 +49,8 @@ object Main {
         subject.add(ObserverOne())//添加观察者
         subject.add(ObserverTwo())
         subject.operation()//执行自身的操作
+        //代理模式
+        val proxy = Proxy(RealSubject())
+        proxy.request()
     }
 }
